@@ -9,6 +9,8 @@ import component.CancelarReservaGrupo;
 import component.CriarReserva;
 import component.ListaExcursao;
 import java.awt.Component;
+
+import Excursao.Excursao;
 import menu.MenuEvent;
 
 /**
@@ -31,22 +33,29 @@ public class Main extends javax.swing.JFrame {
 //        });
 //    }
     
-    public Main() {
+    public Main(Excursao exc, String cod) {
+        this.excursao = exc;
+
+        criarReserva = new CriarReserva(excursao, cod);
+        cancelarReserva = new CancelarReserva(excursao, cod);
+        cancelarReservaGrupo = new CancelarReservaGrupo(excursao, cod);
+        listaExcursao = new ListaExcursao(excursao);
+
         initComponents();
-        showForm(new CriarReserva());
+        showForm(criarReserva);
 
         menu4.setEvent(new MenuEvent() {
             @Override
             public void selected(int index, int subIndex) {
                 if (index == 0 || index == 1) {
-                    showForm(new CriarReserva());
+                    showForm(criarReserva);
                 } else if (index == 2 && subIndex == 1) {
-                    showForm(new CancelarReserva());
+                    showForm(cancelarReserva);
                 } else if (index == 2 && subIndex == 2) {
-                    showForm(new CancelarReservaGrupo());
+                    showForm(cancelarReservaGrupo);
                 }
                 else {
-                    showForm(new ListaExcursao());
+                    showForm(listaExcursao);
                 }
             }
         });
@@ -94,7 +103,6 @@ public class Main extends javax.swing.JFrame {
         scrollPaneWin111.setBackground(new java.awt.Color(1, 31, 160));
         scrollPaneWin111.setBorder(null);
         scrollPaneWin111.setForeground(new java.awt.Color(255, 255, 255));
-        scrollPaneWin111.setOpaque(false);
 
         menu4.setBackground(getBackground());
         menu4.setForeground(new java.awt.Color(255,255,255,0));
@@ -102,7 +110,6 @@ public class Main extends javax.swing.JFrame {
         scrollPaneWin111.setViewportView(menu4);
 
         body.setBackground(new java.awt.Color(204, 204, 204));
-        body.setSize(new java.awt.Dimension(715, 598));
         body.setLayout(new java.awt.BorderLayout());
 
         javax.swing.GroupLayout kGradientPanel1Layout = new javax.swing.GroupLayout(kGradientPanel1);
@@ -170,15 +177,22 @@ public class Main extends javax.swing.JFrame {
         }
         //</editor-fold>
 
-        /* Create and display the form */
+        /* Create and display the form
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 Main main = new Main();
                 main.setVisible(true);
 
             }
-        });
+        }); */
     }
+
+    private Excursao excursao;
+
+    private CriarReserva criarReserva;
+    private CancelarReserva cancelarReserva;
+    private CancelarReservaGrupo cancelarReservaGrupo;
+    private ListaExcursao listaExcursao;
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel body;

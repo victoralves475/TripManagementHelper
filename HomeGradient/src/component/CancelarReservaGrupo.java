@@ -4,6 +4,8 @@
  */
 package component;
 
+import Excursao.Excursao;
+
 /**
  *
  * @author antoniovictoralvesdacosta
@@ -13,7 +15,9 @@ public class CancelarReservaGrupo extends javax.swing.JPanel {
     /**
      * Creates new form CancelarReserva
      */
-    public CancelarReservaGrupo() {
+    public CancelarReservaGrupo(Excursao exc, String cod) {
+        this.excursao = exc;
+        this.cod = cod;
         initComponents();
     }
 
@@ -54,6 +58,7 @@ public class CancelarReservaGrupo extends javax.swing.JPanel {
 
         jTextField2.setBackground(new java.awt.Color(250, 250, 250));
         jTextField2.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(51, 102, 255)));
+        jTextField2.setEnabled(false);
         jTextField2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField2ActionPerformed(evt);
@@ -73,7 +78,7 @@ public class CancelarReservaGrupo extends javax.swing.JPanel {
 
         jLabel2.setFont(new java.awt.Font(".AppleSystemUIFont", 0, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(51, 102, 255));
-        jLabel2.setText("Excursão: ");
+        jLabel2.setText("Excursão: " + cod);
 
         kGradientPanel2.setkEndColor(new java.awt.Color(51, 102, 255));
         kGradientPanel2.setkGradientFocus(100);
@@ -83,6 +88,11 @@ public class CancelarReservaGrupo extends javax.swing.JPanel {
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));
         jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel11.setText("CONFIRMAR");
+        jLabel11.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel11MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout kGradientPanel2Layout = new javax.swing.GroupLayout(kGradientPanel2);
         kGradientPanel2.setLayout(kGradientPanel2Layout);
@@ -153,7 +163,20 @@ public class CancelarReservaGrupo extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField2ActionPerformed
 
+    private void jLabel11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel11MouseClicked
+        String cpf = jTextField3.getText();
+        try {
+            excursao.cancelarReserva(cpf);
+            excursao.salvar();
+            System.out.println("Reserva(s) do CPF '" + cpf + "'  Cancelada(s)");
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }//GEN-LAST:event_jLabel11MouseClicked
 
+    private Excursao excursao;
+    private String cod;
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;

@@ -4,6 +4,8 @@
  */
 package component;
 
+import Excursao.Excursao;
+
 /**
  *
  * @author antoniovictoralvesdacosta
@@ -13,7 +15,9 @@ public class CancelarReserva extends javax.swing.JPanel {
     /**
      * Creates new form CancelarReserva
      */
-    public CancelarReserva() {
+    public CancelarReserva(Excursao exc, String cod) {
+        this.excursao = exc;
+        this.cod = cod;
         initComponents();
     }
 
@@ -73,7 +77,7 @@ public class CancelarReserva extends javax.swing.JPanel {
 
         jLabel2.setFont(new java.awt.Font(".AppleSystemUIFont", 0, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(51, 102, 255));
-        jLabel2.setText("Excursão: ");
+        jLabel2.setText("Excursão: " + cod);
 
         kGradientPanel2.setkEndColor(new java.awt.Color(51, 102, 255));
         kGradientPanel2.setkGradientFocus(100);
@@ -83,6 +87,11 @@ public class CancelarReserva extends javax.swing.JPanel {
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));
         jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel11.setText("CONFIRMAR");
+        jLabel11.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel11MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout kGradientPanel2Layout = new javax.swing.GroupLayout(kGradientPanel2);
         kGradientPanel2.setLayout(kGradientPanel2Layout);
@@ -154,6 +163,24 @@ public class CancelarReserva extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField2ActionPerformed
 
+    private void jLabel11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel11MouseClicked
+        String cpf = jTextField3.getText();
+        String nome = jTextField2.getText();
+
+        try {
+            if (cpf.isBlank() || nome.isBlank()) {
+                throw new Exception("Preencha todos os campos!");
+            }
+            excursao.cancelarReserva(cpf, nome);
+            excursao.salvar();
+            System.out.println("Reserva Cancelada: " + cpf + "/" + nome);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }//GEN-LAST:event_jLabel11MouseClicked
+
+    private Excursao excursao;
+    private String cod;
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;

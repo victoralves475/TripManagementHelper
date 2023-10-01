@@ -4,6 +4,8 @@
  */
 package component;
 
+import Excursao.Excursao;
+
 /**
  *
  * @author antoniovictoralvesdacosta
@@ -13,7 +15,8 @@ public class ListaExcursao extends javax.swing.JPanel {
     /**
      * Creates new form ListExcursion
      */
-    public ListaExcursao() {
+    public ListaExcursao(Excursao exc) {
+        this.excursao = exc;
         initComponents();
     }
 
@@ -119,6 +122,7 @@ public class ListaExcursao extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private Excursao excursao;
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
