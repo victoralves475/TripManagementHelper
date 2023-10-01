@@ -7,6 +7,7 @@ package home;
 import java.awt.event.KeyEvent;
 
 import Excursao.Excursao;
+import main.Main;
 
 /**
  *
@@ -311,7 +312,9 @@ public class Home extends javax.swing.JFrame {
             jTextField4.setText("");
             try {
                 excursao = new Excursao(Integer.parseInt(cod));
-                // chama janela
+                main = new Main(); //add parametro excursao
+                main.setVisible(true);
+                home.setVisible(false);
             } catch (Exception e) {
                 // janelinha.showMessageDialog(null, e.getMessage());
                 System.out.println(e.getMessage());
@@ -324,7 +327,9 @@ public class Home extends javax.swing.JFrame {
         if (!(preco.isBlank() || max.isBlank())) {
             try {
                 excursao = new Excursao(Integer.parseInt(cod), Double.parseDouble(preco), Integer.parseInt(max));
-                // chama janela
+                main = new Main(); //add parametro excursao
+                main.setVisible(true);
+                home.setVisible(false);
             } catch (Exception e) {
             // janelinha.showMessageDialog(null, e.getMessage());
                 System.out.println(e.getMessage());
@@ -362,12 +367,15 @@ public class Home extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Home().setVisible(true);
+                home = new Home();
+                home.setVisible(true);
             }
         });
     }
 
     private Excursao excursao;
+    private static Home home;
+    private Main main;
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
