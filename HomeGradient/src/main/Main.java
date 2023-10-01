@@ -4,17 +4,60 @@
  */
 package main;
 
+import component.CancelarReserva;
+import component.CancelarReservaGrupo;
+import component.CriarReserva;
+import component.ListaExcursao;
+import java.awt.Component;
+import menu.MenuEvent;
+
 /**
  *
  * @author antoniovictoralvesdacosta
  */
 public class Main extends javax.swing.JFrame {
+    
 
     /**
      * Creates new form Main
      */
+//    public Main() {
+//        initComponents();
+//        menu4.setEvent(new MenuEvent() {
+//            @Override
+//            public void selected(int index, int subIndex) {
+//                showForm(new DefaultForm("Teste: " + index + " " + subIndex));
+//            }
+//        });
+//    }
+    
     public Main() {
         initComponents();
+        showForm(new CriarReserva());
+
+        menu4.setEvent(new MenuEvent() {
+            @Override
+            public void selected(int index, int subIndex) {
+                if (index == 0 || index == 1) {
+                    showForm(new CriarReserva());
+                } else if (index == 2 && subIndex == 1) {
+                    showForm(new CancelarReserva());
+                } else if (index == 2 && subIndex == 2) {
+                    showForm(new CancelarReservaGrupo());
+                }
+                else {
+                    showForm(new ListaExcursao());
+                }
+            }
+        });
+    }
+
+    
+    private void showForm(Component com) {
+        body.removeAll();
+        body.add(com);
+        body.repaint();
+        body.revalidate();
     }
 
     /**
@@ -26,29 +69,74 @@ public class Main extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        kGradientPanel1 = new keeptoo.KGradientPanel();
+        header1 = new component.Header();
         scrollPaneWin111 = new raven.scroll.win11.ScrollPaneWin11();
         menu4 = new menu.Menu();
+        body = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("WhereTo - Trip Management Helper");
+        setAlwaysOnTop(true);
+        setBackground(new java.awt.Color(1, 31, 160));
+        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        setForeground(getBackground());
         setPreferredSize(new java.awt.Dimension(915, 648));
         setResizable(false);
         setSize(new java.awt.Dimension(915, 648));
 
+        kGradientPanel1.setBackground(new java.awt.Color(1, 31, 160));
+        kGradientPanel1.setForeground(getBackground());
+
+        header1.setBackground(new java.awt.Color(1, 31, 160));
+        header1.setOpaque(false);
+
+        scrollPaneWin111.setBackground(new java.awt.Color(1, 31, 160));
+        scrollPaneWin111.setBorder(null);
+        scrollPaneWin111.setForeground(new java.awt.Color(255, 255, 255));
+        scrollPaneWin111.setOpaque(false);
+
+        menu4.setBackground(getBackground());
+        menu4.setForeground(new java.awt.Color(255,255,255,0));
+        menu4.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
         scrollPaneWin111.setViewportView(menu4);
+
+        body.setBackground(new java.awt.Color(204, 204, 204));
+        body.setSize(new java.awt.Dimension(715, 598));
+        body.setLayout(new java.awt.BorderLayout());
+
+        javax.swing.GroupLayout kGradientPanel1Layout = new javax.swing.GroupLayout(kGradientPanel1);
+        kGradientPanel1.setLayout(kGradientPanel1Layout);
+        kGradientPanel1Layout.setHorizontalGroup(
+            kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(header1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(kGradientPanel1Layout.createSequentialGroup()
+                .addComponent(scrollPaneWin111, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(body, javax.swing.GroupLayout.PREFERRED_SIZE, 840, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        kGradientPanel1Layout.setVerticalGroup(
+            kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(kGradientPanel1Layout.createSequentialGroup()
+                .addComponent(header1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(scrollPaneWin111, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(kGradientPanel1Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(body, javax.swing.GroupLayout.PREFERRED_SIZE, 614, javax.swing.GroupLayout.PREFERRED_SIZE))))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(scrollPaneWin111, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 724, Short.MAX_VALUE))
+                .addComponent(kGradientPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(54, 54, 54)
-                .addComponent(scrollPaneWin111, javax.swing.GroupLayout.DEFAULT_SIZE, 401, Short.MAX_VALUE))
+            .addComponent(kGradientPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 648, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -85,12 +173,17 @@ public class Main extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Main().setVisible(true);
+                Main main = new Main();
+                main.setVisible(true);
+
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel body;
+    private component.Header header1;
+    private keeptoo.KGradientPanel kGradientPanel1;
     private menu.Menu menu4;
     private raven.scroll.win11.ScrollPaneWin11 scrollPaneWin111;
     // End of variables declaration//GEN-END:variables

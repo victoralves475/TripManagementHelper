@@ -17,6 +17,8 @@ public class MenuAnimation {
             public void timingEvent(float fraction) {
                 float f = show ? fraction : 1f - fraction;
                 layout.setComponentConstraints(component, "h " + height * f + "!");
+                item.setAnimate(f);
+                item.repaint();
                 component.revalidate();
             }
         });

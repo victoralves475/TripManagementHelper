@@ -6,10 +6,13 @@ package menu;
 
 import java.awt.Color;
 import java.awt.Component;
+import java.awt.GradientPaint;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.awt.geom.Rectangle2D;
 import java.net.URL;
 import javax.swing.Icon;
@@ -23,8 +26,23 @@ import net.miginfocom.swing.MigLayout;
  * @author antoniovictoralvesdacosta
  */
 public class Menu extends JComponent {
+
+    /**
+     * @return the event
+     */
+    public MenuEvent getEvent() {
+        return event;
+    }
+
+    /**
+     * @param event the event to set
+     */
+    public void setEvent(MenuEvent event) {
+        this.event = event;
+    }
     
     private MigLayout layout;
+    private MenuEvent event;
     
     private String[][] menuItems = new String[][]{
         {"Menu"},
@@ -36,6 +54,20 @@ public class Menu extends JComponent {
     
     public Menu() {
         init();
+        addMouseListener(new MouseAdapter() {
+        
+        @Override
+            public void mouseEntered(MouseEvent e) {
+                setOpaque(false); // torna o componente transparente
+                repaint(); // repinta o componente para refletir a mudança
+            }
+
+        @Override
+            public void mouseExited(MouseEvent e) {
+                setOpaque(true); // torna o componente opaco novamente
+                repaint(); // repinta o componente
+            }   
+        });
     }
     
     private void init() {
@@ -85,6 +117,10 @@ public class Menu extends JComponent {
                         hideMenu(item, index);
                         item.setSelected(false);
                     }
+                } else {
+                    if (event != null) {
+                        event.selected(index, 0);
+                    }
                 }
             }
         });
@@ -99,6 +135,16 @@ public class Menu extends JComponent {
         panel.setOpaque(false);
         for (int i = 1; i < length; i++) {
             MenuItem subItem = new MenuItem(menuItems[index][i], i, false);
+            subItem.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent ae) {
+                    if (event != null) {
+                        event.selected(index, subItem.getIndex());
+                    }
+                }
+            }
+            
+            );
             subItem.initSubMenu(i, length);
             panel.add(subItem);
         }
@@ -122,11 +168,19 @@ public class Menu extends JComponent {
     
     @Override
     protected void paintComponent(Graphics grphcs) {
-        Graphics2D g2 = (Graphics2D) grphcs.create();
-        g2.setColor(new Color(255, 255, 255));
-        g2.fill(new Rectangle2D.Double( 0, 0, getWidth(), getHeight()));
-        
-        super.paintComponent(grphcs);
-    }
+    super.paintComponent(grphcs); // mova esta chamada para o início
+    Graphics2D g2 = (Graphics2D) grphcs.create();
+    g2.setPaint(new GradientPaint(0, 0, new Color(1, 31, 160), 0, getHeight(), new Color(1, 31, 160)));
+    g2.fill(new Rectangle2D.Double(0, 0, getWidth(), getHeight()));
+}
+
+    
+//    @Override
+//    protected void paintComponent(Graphics grphcs) {
+//        Graphics2D g2 = (Graphics2D) grphcs.create();
+//        g2.setPaint(new GradientPaint(0, 0, new Color(156, 0, 255), 0, getHeight(), new Color(32, 0, 255)));
+//        g2.fill(new Rectangle2D.Double( 0, 0, getWidth(), getHeight()));
+//        super.paintComponent(grphcs);
+//    }
     
 }
