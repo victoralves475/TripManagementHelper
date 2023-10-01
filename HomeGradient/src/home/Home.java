@@ -4,6 +4,10 @@
  */
 package home;
 
+import java.awt.event.KeyEvent;
+
+import Excursao.Excursao;
+
 /**
  *
  * @author antoniovictoralvesdacosta
@@ -112,6 +116,11 @@ public class Home extends javax.swing.JFrame {
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel10.setText("CONTINUAR");
+        jLabel10.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel10MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout kGradientPanel2Layout = new javax.swing.GroupLayout(kGradientPanel2);
         kGradientPanel2.setLayout(kGradientPanel2Layout);
@@ -291,6 +300,38 @@ public class Home extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField5ActionPerformed
 
+    private void jLabel10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel10MouseClicked
+        String cod = jTextField5.getText();
+        
+        if (cod.isBlank()) {
+            cod = jTextField2.getText();
+        } else {
+            jTextField2.setText("");
+            jTextField3.setText("");
+            jTextField4.setText("");
+            try {
+                excursao = new Excursao(Integer.parseInt(cod));
+                // chama janela
+            } catch (Exception e) {
+                // janelinha.showMessageDialog(null, e.getMessage());
+                System.out.println(e.getMessage());
+            }
+        }
+
+        String preco = jTextField3.getText();
+        String max = jTextField4.getText();
+
+        if (!(preco.isBlank() || max.isBlank())) {
+            try {
+                excursao = new Excursao(Integer.parseInt(cod), Double.parseDouble(preco), Integer.parseInt(max));
+                // chama janela
+            } catch (Exception e) {
+            // janelinha.showMessageDialog(null, e.getMessage());
+                System.out.println(e.getMessage());
+            }
+        }
+    }//GEN-LAST:event_jLabel10MouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -325,6 +366,8 @@ public class Home extends javax.swing.JFrame {
             }
         });
     }
+
+    private Excursao excursao;
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
