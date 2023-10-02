@@ -6,7 +6,7 @@
     <Property name="title" type="java.lang.String" value="WhereTo - Trip Management Helper"/>
     <Property name="alwaysOnTop" type="boolean" value="true"/>
     <Property name="background" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-      <Connection code="new java.awt.Color(1, 31, 160)" type="code"/>
+      <Connection code="new java.awt.Color(1, 28, 110)" type="code"/>
     </Property>
     <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
       <Color id="Default Cursor"/>
@@ -69,8 +69,8 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Component id="header1" max="32767" attributes="0"/>
               <Group type="102" attributes="0">
-                  <Component id="scrollPaneWin111" min="-2" pref="200" max="-2" attributes="0"/>
-                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                  <Component id="scrollPaneWin111" min="-2" pref="202" max="-2" attributes="0"/>
+                  <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                   <Component id="body" min="-2" pref="840" max="-2" attributes="0"/>
               </Group>
           </Group>
@@ -79,12 +79,10 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <Component id="header1" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="scrollPaneWin111" max="32767" attributes="0"/>
-                      <Group type="102" attributes="0">
-                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                          <Component id="body" min="-2" pref="614" max="-2" attributes="0"/>
-                      </Group>
+                      <Component id="body" min="-2" pref="614" max="-2" attributes="0"/>
+                      <Component id="scrollPaneWin111" min="-2" pref="600" max="-2" attributes="0"/>
                   </Group>
               </Group>
           </Group>
@@ -101,8 +99,8 @@
         </Component>
         <Container class="raven.scroll.win11.ScrollPaneWin11" name="scrollPaneWin111">
           <Properties>
-            <Property name="background" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-              <Connection code="new java.awt.Color(1, 31, 160)" type="code"/>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="cc" red="99" type="rgb"/>
             </Property>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="null"/>
@@ -117,8 +115,8 @@
           <SubComponents>
             <Component class="menu.Menu" name="menu4">
               <Properties>
-                <Property name="background" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                  <Connection component="Form" name="background" type="property"/>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="ff" green="cc" red="99" type="rgb"/>
                 </Property>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
                   <Connection code="new java.awt.Color(255,255,255,0)" type="code"/>
@@ -141,6 +139,21 @@
           </Properties>
 
           <Layout class="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout"/>
+        </Container>
+        <Container class="keeptoo.KGradientPanel" name="kGradientPanel2">
+
+          <Layout>
+            <DimensionLayout dim="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+              </Group>
+            </DimensionLayout>
+            <DimensionLayout dim="1">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+              </Group>
+            </DimensionLayout>
+          </Layout>
         </Container>
       </SubComponents>
     </Container>

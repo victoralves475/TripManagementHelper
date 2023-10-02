@@ -71,7 +71,7 @@ public class Menu extends JComponent {
     }
     
     private void init() {
-        layout = new MigLayout("wrap 1, fillx, gapy 0, inset 2", "fill");
+        layout = new MigLayout("wrap 1, fillx, gapy 0, inset 0", "fill");
         setLayout(layout);
         setOpaque(true);
 
@@ -170,7 +170,7 @@ public class Menu extends JComponent {
     protected void paintComponent(Graphics grphcs) {
     super.paintComponent(grphcs); // mova esta chamada para o início
     Graphics2D g2 = (Graphics2D) grphcs.create();
-    g2.setPaint(new GradientPaint(0, 0, new Color(1, 31, 160), 0, getHeight(), new Color(1, 31, 160)));
+    g2.setPaint(new GradientPaint(0, 0, new Color(51,102,255), 0, getHeight(), new Color(51,102,255)));
     g2.fill(new Rectangle2D.Double(0, 0, getWidth(), getHeight()));
 }
 

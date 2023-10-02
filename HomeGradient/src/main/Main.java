@@ -99,11 +99,12 @@ public class Main extends javax.swing.JFrame {
         scrollPaneWin111 = new raven.scroll.win11.ScrollPaneWin11();
         menu4 = new menu.Menu();
         body = new javax.swing.JPanel();
+        kGradientPanel2 = new keeptoo.KGradientPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("WhereTo - Trip Management Helper");
         setAlwaysOnTop(true);
-        setBackground(new java.awt.Color(1, 31, 160));
+        setBackground(new java.awt.Color(1, 28, 110));
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setForeground(getBackground());
         setPreferredSize(new java.awt.Dimension(915, 648));
@@ -116,17 +117,30 @@ public class Main extends javax.swing.JFrame {
         header1.setBackground(new java.awt.Color(1, 31, 160));
         header1.setOpaque(false);
 
-        scrollPaneWin111.setBackground(new java.awt.Color(1, 31, 160));
+        scrollPaneWin111.setBackground(new java.awt.Color(153, 204, 255));
         scrollPaneWin111.setBorder(null);
         scrollPaneWin111.setForeground(new java.awt.Color(255, 255, 255));
+        scrollPaneWin111.setOpaque(false);
 
-        menu4.setBackground(getBackground());
+        menu4.setBackground(new java.awt.Color(153, 204, 255));
         menu4.setForeground(new java.awt.Color(255,255,255,0));
         menu4.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
         scrollPaneWin111.setViewportView(menu4);
 
         body.setBackground(new java.awt.Color(204, 204, 204));
+        body.setSize(new java.awt.Dimension(715, 598));
         body.setLayout(new java.awt.BorderLayout());
+
+        javax.swing.GroupLayout kGradientPanel2Layout = new javax.swing.GroupLayout(kGradientPanel2);
+        kGradientPanel2.setLayout(kGradientPanel2Layout);
+        kGradientPanel2Layout.setHorizontalGroup(
+            kGradientPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+        kGradientPanel2Layout.setVerticalGroup(
+            kGradientPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
 
         javax.swing.GroupLayout kGradientPanel1Layout = new javax.swing.GroupLayout(kGradientPanel1);
         kGradientPanel1.setLayout(kGradientPanel1Layout);
@@ -134,19 +148,18 @@ public class Main extends javax.swing.JFrame {
             kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(header1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(kGradientPanel1Layout.createSequentialGroup()
-                .addComponent(scrollPaneWin111, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(scrollPaneWin111, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
                 .addComponent(body, javax.swing.GroupLayout.PREFERRED_SIZE, 840, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         kGradientPanel1Layout.setVerticalGroup(
             kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(kGradientPanel1Layout.createSequentialGroup()
                 .addComponent(header1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
                 .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(scrollPaneWin111, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(kGradientPanel1Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(body, javax.swing.GroupLayout.PREFERRED_SIZE, 614, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addComponent(body, javax.swing.GroupLayout.PREFERRED_SIZE, 614, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(scrollPaneWin111, javax.swing.GroupLayout.PREFERRED_SIZE, 600, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -216,6 +229,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JPanel body;
     private component.Header header1;
     private keeptoo.KGradientPanel kGradientPanel1;
+    private keeptoo.KGradientPanel kGradientPanel2;
     private menu.Menu menu4;
     private raven.scroll.win11.ScrollPaneWin11 scrollPaneWin111;
     // End of variables declaration//GEN-END:variables
