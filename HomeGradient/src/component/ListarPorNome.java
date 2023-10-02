@@ -4,7 +4,11 @@
  */
 package component;
 
+import java.util.ArrayList;
+
 import Excursao.Excursao;
+
+import component.SearchClickListener;
 
 /**
  *
@@ -141,12 +145,9 @@ public class ListarPorNome extends javax.swing.JPanel {
                         .addGap(18, 18, 18)
                         .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(274, 274, 274))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(0, 0, 0)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jSeparator1, javax.swing.GroupLayout.Alignment.TRAILING))
-                .addGap(0, 0, 0))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.Alignment.TRAILING))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -185,23 +186,26 @@ public class ListarPorNome extends javax.swing.JPanel {
     }//GEN-LAST:event_jTextField2ActionPerformed
 
     private void jLabel11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel11MouseClicked
-        String cpf = jTextField3.getText();
         String nome = jTextField2.getText();
 
         try {
-            if (cpf.isBlank() || nome.isBlank()) {
-                throw new Exception("Preencha todos os campos!");
+            resultado = excursao.listarReservasPorNome(nome);
+            if (listener != null) {
+                listener.onNomeClick(resultado);
             }
-            excursao.cancelarReserva(cpf, nome);
-            excursao.salvar();
-            System.out.println("Reserva Cancelada: " + cpf + "/" + nome);
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
     }//GEN-LAST:event_jLabel11MouseClicked
 
+    public void setNomeClickListener(SearchClickListener listener) {
+        this.listener = listener;
+    }
+
+    private SearchClickListener listener;
     private Excursao excursao;
     private String cod;
+    public ArrayList<String> resultado;
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;

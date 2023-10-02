@@ -4,8 +4,6 @@
  */
 package home;
 
-import java.awt.event.KeyEvent;
-
 import Excursao.Excursao;
 import main.Main;
 

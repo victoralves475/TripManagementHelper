@@ -1,0 +1,8 @@
+{
+    "java.project.referencedLibraries": [
+        "lib/**/*.jar",
+        "src/Dependences/KGradientPanel.jar",
+        "src/Dependences/miglayout-4.0.jar",
+        "src/Dependences/TimingFramework-0.55.jar"
+    ]
+}

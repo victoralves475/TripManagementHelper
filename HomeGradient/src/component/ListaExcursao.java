@@ -4,7 +4,7 @@
  */
 package component;
 
-import Excursao.Excursao;
+import java.util.ArrayList;
 
 /**
  *
@@ -15,8 +15,8 @@ public class ListaExcursao extends javax.swing.JPanel {
     /**
      * Creates new form ListExcursion
      */
-    public ListaExcursao(Excursao exc) {
-        this.excursao = exc;
+    public ListaExcursao(ArrayList<String> resultado) {
+        this.resultado = resultado;
         initComponents();
     }
 
@@ -46,6 +46,7 @@ public class ListaExcursao extends javax.swing.JPanel {
         jTextArea2.setColumns(20);
         jTextArea2.setRows(5);
         jTextArea2.setSize(new java.awt.Dimension(235, 548));
+        jTextArea2.setText(resultado.get(0)); // TODO printar o bgl direito
         jScrollPane2.setViewportView(jTextArea2);
 
         jLabel1.setBackground(new java.awt.Color(250, 250, 250));
@@ -134,7 +135,7 @@ public class ListaExcursao extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private Excursao excursao;
+    private ArrayList<String> resultado;
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;

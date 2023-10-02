@@ -4,7 +4,11 @@
  */
 package component;
 
+import java.util.ArrayList;
+
 import Excursao.Excursao;
+
+import component.SearchClickListener;
 
 /**
  *
@@ -186,22 +190,25 @@ public class ListarPorCpf extends javax.swing.JPanel {
 
     private void jLabel11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel11MouseClicked
         String cpf = jTextField3.getText();
-        String nome = jTextField2.getText();
 
         try {
-            if (cpf.isBlank() || nome.isBlank()) {
-                throw new Exception("Preencha todos os campos!");
+            resultado = excursao.listarReservasPorCpf(cpf);
+            if (listener != null) {
+                listener.onNomeClick(resultado);
             }
-            excursao.cancelarReserva(cpf, nome);
-            excursao.salvar();
-            System.out.println("Reserva Cancelada: " + cpf + "/" + nome);
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
     }//GEN-LAST:event_jLabel11MouseClicked
 
+    public void setCpfClickListener(SearchClickListener listener) {
+        this.listener = listener;
+    }
+
+    private SearchClickListener listener;
     private Excursao excursao;
     private String cod;
+    public ArrayList<String> resultado;
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;

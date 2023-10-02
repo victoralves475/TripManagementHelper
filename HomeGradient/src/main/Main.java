@@ -8,10 +8,14 @@ import component.CancelarReserva;
 import component.CancelarReservaGrupo;
 import component.CriarReserva;
 import component.ListaExcursao;
+import component.ListarPorCpf;
+import component.ListarPorNome;
 import java.awt.Component;
+import java.util.ArrayList;
 
 import Excursao.Excursao;
 import menu.MenuEvent;
+import component.SearchClickListener;
 
 /**
  *
@@ -39,7 +43,18 @@ public class Main extends javax.swing.JFrame {
         criarReserva = new CriarReserva(excursao, cod);
         cancelarReserva = new CancelarReserva(excursao, cod);
         cancelarReservaGrupo = new CancelarReservaGrupo(excursao, cod);
-        listaExcursao = new ListaExcursao(excursao);
+        listarPorCpf = new ListarPorCpf(excursao, cod);
+        listarPorNome = new ListarPorNome(excursao, cod);
+
+        listarPorNome.setNomeClickListener(nomes -> {
+            listaExcursao = new ListaExcursao(nomes);
+            showForm(listaExcursao);
+        });
+
+        listarPorCpf.setCpfClickListener(cpfs -> {
+            listaExcursao = new ListaExcursao(cpfs);
+            showForm(listaExcursao);
+        });
 
         initComponents();
         showForm(criarReserva);
@@ -54,13 +69,14 @@ public class Main extends javax.swing.JFrame {
                 } else if (index == 2 && subIndex == 2) {
                     showForm(cancelarReservaGrupo);
                 }
-                else {
-                    showForm(listaExcursao);
+                else if (index == 3 && subIndex == 1) {
+                    showForm(listarPorCpf);
+                } else if (index == 3 && subIndex == 2) {
+                    showForm(listarPorNome);
                 }
             }
         });
     }
-
     
     private void showForm(Component com) {
         body.removeAll();
@@ -193,6 +209,8 @@ public class Main extends javax.swing.JFrame {
     private CancelarReserva cancelarReserva;
     private CancelarReservaGrupo cancelarReservaGrupo;
     private ListaExcursao listaExcursao;
+    private ListarPorCpf listarPorCpf;
+    private ListarPorNome listarPorNome;
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel body;
