@@ -45,14 +45,16 @@ public class Main extends javax.swing.JFrame {
         cancelarReservaGrupo = new CancelarReservaGrupo(excursao, cod);
         listarPorCpf = new ListarPorCpf(excursao, cod);
         listarPorNome = new ListarPorNome(excursao, cod);
+        total = excursao.calcularValorTotal();
+        preco = excursao.getPrecoExcursao();
 
         listarPorNome.setNomeClickListener(nomes -> {
-            listaExcursao = new ListaExcursao(nomes);
+            listaExcursao = new ListaExcursao(nomes, preco, total);
             showForm(listaExcursao);
         });
 
         listarPorCpf.setCpfClickListener(cpfs -> {
-            listaExcursao = new ListaExcursao(cpfs);
+            listaExcursao = new ListaExcursao(cpfs, preco, total);
             showForm(listaExcursao);
         });
 
@@ -224,6 +226,8 @@ public class Main extends javax.swing.JFrame {
     private ListaExcursao listaExcursao;
     private ListarPorCpf listarPorCpf;
     private ListarPorNome listarPorNome;
+    private Double total;
+    private Double preco;
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel body;

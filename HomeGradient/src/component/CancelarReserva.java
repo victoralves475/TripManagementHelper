@@ -19,6 +19,7 @@ public class CancelarReserva extends javax.swing.JPanel {
         this.excursao = exc;
         this.cod = cod;
         initComponents();
+        jLabel2.setText("Excursão: " + cod);
     }
 
     /**
@@ -40,7 +41,7 @@ public class CancelarReserva extends javax.swing.JPanel {
         jLabel11 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        print = new javax.swing.JTextArea();
         jSeparator1 = new javax.swing.JSeparator();
 
         setBackground(new java.awt.Color(250, 250, 250));
@@ -80,7 +81,7 @@ public class CancelarReserva extends javax.swing.JPanel {
 
         jLabel2.setFont(new java.awt.Font(".AppleSystemUIFont", 0, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(51, 102, 255));
-        jLabel2.setText("Excursão: " + cod);
+        jLabel2.setText("Excursão: ");
 
         kGradientPanel2.setkEndColor(new java.awt.Color(51, 102, 255));
         kGradientPanel2.setkGradientFocus(100);
@@ -116,9 +117,9 @@ public class CancelarReserva extends javax.swing.JPanel {
         jScrollPane1.setBackground(new java.awt.Color(255, 255, 255));
         jScrollPane1.setBorder(null);
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        print.setColumns(20);
+        print.setRows(5);
+        jScrollPane1.setViewportView(print);
 
         jSeparator1.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -191,14 +192,16 @@ public class CancelarReserva extends javax.swing.JPanel {
             }
             excursao.cancelarReserva(cpf, nome);
             excursao.salvar();
-            System.out.println("Reserva Cancelada: " + cpf + "/" + nome);
+            log += "Reserva Cancelada: " + cpf + "/" + nome + "\n";
+            print.setText(log);
         } catch (Exception e) {
-            System.out.println(e.getMessage());
+            print.setText(e.getMessage());
         }
     }//GEN-LAST:event_jLabel11MouseClicked
 
     private Excursao excursao;
     private String cod;
+    private String log = "";
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
@@ -209,9 +212,9 @@ public class CancelarReserva extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     private keeptoo.KGradientPanel kGradientPanel2;
+    private javax.swing.JTextArea print;
     // End of variables declaration//GEN-END:variables
 }

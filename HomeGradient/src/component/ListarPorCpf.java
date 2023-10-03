@@ -23,6 +23,7 @@ public class ListarPorCpf extends javax.swing.JPanel {
         this.excursao = exc;
         this.cod = cod;
         initComponents();
+        jLabel2.setText("Excursão: " + cod);
     }
 
     /**
@@ -193,11 +194,15 @@ public class ListarPorCpf extends javax.swing.JPanel {
 
         try {
             resultado = excursao.listarReservasPorCpf(cpf);
-            if (listener != null) {
+            if (resultado.isEmpty()) {
+                log += "Reservas não encontradas para o CPF: " + cpf + "\n";
+                jTextArea1.setText(log);
+            } else if (listener != null) {
                 listener.onNomeClick(resultado);
             }
         } catch (Exception e) {
-            System.out.println(e.getMessage());
+            log += e.getMessage();
+            jTextArea1.setText(log);
         }
     }//GEN-LAST:event_jLabel11MouseClicked
 
@@ -209,6 +214,7 @@ public class ListarPorCpf extends javax.swing.JPanel {
     private Excursao excursao;
     private String cod;
     public ArrayList<String> resultado;
+    private String log = "";
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;

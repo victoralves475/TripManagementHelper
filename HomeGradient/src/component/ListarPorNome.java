@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import Excursao.Excursao;
 
 import component.SearchClickListener;
+import java.awt.event.KeyEvent;
 
 /**
  *
@@ -23,6 +24,7 @@ public class ListarPorNome extends javax.swing.JPanel {
         this.excursao = exc;
         this.cod = cod;
         initComponents();
+        jLabel2.setText("Excursão: " + cod);
     }
 
     /**
@@ -190,11 +192,15 @@ public class ListarPorNome extends javax.swing.JPanel {
 
         try {
             resultado = excursao.listarReservasPorNome(nome);
-            if (listener != null) {
+            if (resultado.isEmpty()) {
+                log += "Não há reservas no nome de " + nome + "\n";
+                jTextArea1.setText(log);
+            } else if (listener != null) {
                 listener.onNomeClick(resultado);
             }
         } catch (Exception e) {
-            System.out.println(e.getMessage());
+            log += e.getMessage();
+            jTextArea1.setText(log);
         }
     }//GEN-LAST:event_jLabel11MouseClicked
 
@@ -206,6 +212,7 @@ public class ListarPorNome extends javax.swing.JPanel {
     private Excursao excursao;
     private String cod;
     public ArrayList<String> resultado;
+    private String log = "";
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
