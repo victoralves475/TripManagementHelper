@@ -45,7 +45,7 @@ public class Menu extends JComponent {
     private MenuEvent event;
     
     private String[][] menuItems = new String[][]{
-        {"Menu"},
+        {"Voltar à página anterior"},
         {"Criar Reserva"},
         {"Cancelar Reserva", "Individual", "Grupo"},
         {"Listar Reserva", "CPF", "Por nome"}
