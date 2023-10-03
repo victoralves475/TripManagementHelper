@@ -6,6 +6,7 @@ package home;
 
 import Excursao.Excursao;
 import main.Main;
+import component.HomeClickListener;
 
 /**
  *
@@ -310,7 +311,16 @@ public class Home extends javax.swing.JFrame {
             jTextField4.setText("");
             try {
                 excursao = new Excursao(Integer.parseInt(cod));
-                main = new Main(excursao, cod); //add parametro excursao
+                main = new Main(excursao); //add parametro excursao
+
+                main.setHomeClickListener(new HomeClickListener() {
+                    @Override
+                    public void onHomeClick() {
+                        main.setVisible(false);
+                        home.setVisible(true);
+                    }
+                });
+
                 main.setVisible(true);
                 home.setVisible(false);
             } catch (Exception e) {
@@ -325,7 +335,7 @@ public class Home extends javax.swing.JFrame {
         if (!(preco.isBlank() || max.isBlank())) {
             try {
                 excursao = new Excursao(Integer.parseInt(cod), Double.parseDouble(preco), Integer.parseInt(max));
-                main = new Main(excursao, cod); //add parametro excursao
+                main = new Main(excursao); //add parametro excursao
                 main.setVisible(true);
                 home.setVisible(false);
             } catch (Exception e) {

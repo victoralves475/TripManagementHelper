@@ -7,6 +7,7 @@ package main;
 import component.CancelarReserva;
 import component.CancelarReservaGrupo;
 import component.CriarReserva;
+import component.HomeClickListener;
 import component.ListaExcursao;
 import component.ListarPorCpf;
 import component.ListarPorNome;
@@ -37,14 +38,14 @@ public class Main extends javax.swing.JFrame {
 //        });
 //    }
     
-    public Main(Excursao exc, String cod) {
+    public Main(Excursao exc) {
         this.excursao = exc;
 
-        criarReserva = new CriarReserva(excursao, cod);
-        cancelarReserva = new CancelarReserva(excursao, cod);
-        cancelarReservaGrupo = new CancelarReservaGrupo(excursao, cod);
-        listarPorCpf = new ListarPorCpf(excursao, cod);
-        listarPorNome = new ListarPorNome(excursao, cod);
+        criarReserva = new CriarReserva(excursao);
+        cancelarReserva = new CancelarReserva(excursao);
+        cancelarReservaGrupo = new CancelarReservaGrupo(excursao);
+        listarPorCpf = new ListarPorCpf(excursao);
+        listarPorNome = new ListarPorNome(excursao);
         total = excursao.calcularValorTotal();
         preco = excursao.getPrecoExcursao();
 
@@ -64,7 +65,10 @@ public class Main extends javax.swing.JFrame {
         menu4.setEvent(new MenuEvent() {
             @Override
             public void selected(int index, int subIndex) {
-                if (index == 0 || index == 1) {
+                if (index == 0) {
+                    // actionListener
+                    listener.onHomeClick();
+                } else if (index == 1) {
                     showForm(criarReserva);
                 } else if (index == 2 && subIndex == 1) {
                     showForm(cancelarReserva);
@@ -205,7 +209,12 @@ public class Main extends javax.swing.JFrame {
         }); */
     }
 
+    public void setHomeClickListener(HomeClickListener listener) {
+        this.listener = listener;
+    }
+
     private Excursao excursao;
+    private HomeClickListener listener;
 
     private CriarReserva criarReserva;
     private CancelarReserva cancelarReserva;

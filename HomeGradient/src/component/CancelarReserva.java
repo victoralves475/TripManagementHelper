@@ -15,11 +15,10 @@ public class CancelarReserva extends javax.swing.JPanel {
     /**
      * Creates new form CancelarReserva
      */
-    public CancelarReserva(Excursao exc, String cod) {
+    public CancelarReserva(Excursao exc) {
         this.excursao = exc;
-        this.cod = cod;
         initComponents();
-        jLabel2.setText("Excursão: " + cod);
+        jLabel2.setText("Excursão: " + excursao.getCodExcursao());
     }
 
     /**
@@ -200,7 +199,6 @@ public class CancelarReserva extends javax.swing.JPanel {
     }//GEN-LAST:event_jLabel11MouseClicked
 
     private Excursao excursao;
-    private String cod;
     private String log = "";
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
