@@ -44,6 +44,7 @@ public class Home extends javax.swing.JFrame {
         kGradientPanel2 = new keeptoo.KGradientPanel();
         jLabel10 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
+        jLabelError = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -141,6 +142,10 @@ public class Home extends javax.swing.JFrame {
         jLabel12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel12.setText("Recuperar Excursão");
 
+        jLabelError.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabelError.setForeground(new java.awt.Color(255, 51, 51));
+        jLabelError.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -170,6 +175,7 @@ public class Home extends javax.swing.JFrame {
                                     .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 314, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addContainerGap()))))
                     .addComponent(jLabel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+            .addComponent(jLabelError, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel1Layout.createSequentialGroup()
                     .addContainerGap()
@@ -199,7 +205,9 @@ public class Home extends javax.swing.JFrame {
                 .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
                 .addComponent(kGradientPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(33, 33, 33))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabelError, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(11, 11, 11))
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel1Layout.createSequentialGroup()
                     .addGap(46, 46, 46)
@@ -323,9 +331,11 @@ public class Home extends javax.swing.JFrame {
 
                 main.setVisible(true);
                 home.setVisible(false);
+                jLabelError.setText("");
             } catch (Exception e) {
                 // janelinha.showMessageDialog(null, e.getMessage());
-                System.out.println(e.getMessage());
+                // System.out.println(e.getMessage());
+                jLabelError.setText(e.getMessage());
             }
         }
 
@@ -338,9 +348,11 @@ public class Home extends javax.swing.JFrame {
                 main = new Main(excursao); //add parametro excursao
                 main.setVisible(true);
                 home.setVisible(false);
+                jLabelError.setText("");
             } catch (Exception e) {
             // janelinha.showMessageDialog(null, e.getMessage());
-                System.out.println(e.getMessage());
+                // System.out.println(e.getMessage());
+                jLabelError.setText(e.getMessage());
             }
         }
     }//GEN-LAST:event_jLabel10MouseClicked
@@ -397,6 +409,7 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JLabel jLabelError;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
