@@ -4,7 +4,9 @@
  */
 package component;
 
+import java.text.NumberFormat;
 import java.util.ArrayList;
+import java.util.Locale;
 
 /**
  *
@@ -23,27 +25,54 @@ public class ListaExcursao extends javax.swing.JPanel {
         print();
     }
 
+//    private void print() {
+//        
+//        String listaCPF = "";
+//        String listaNome = "";
+//        String listaPreco = "";
+//        String[] aux;
+//        for (String ocorrencia : resultado) {
+//            aux = ocorrencia.split("/");
+//            listaCPF += ("   " + aux[0] + "\n");
+//            listaNome += ("   " + aux[1] + "\n");
+//            listaPreco += ("   " + this.preco+ "\n");
+//        }
+//        
+//        printCPF.setText(listaCPF);
+//        printNome.setText(listaNome);
+//        printPreco.setText(listaPreco);
+//        printTotal.setText(Double.toString(total));
+//        
+//    }
     private void print() {
-        
-        String listaCPF = "";
-        String listaNome = "";
-        String listaPreco = "";
+
+        String listaCPF = "\n";
+        String listaNome = "\n";
+        String listaPreco = "\n";
         String[] aux;
+
+        // Configura a formatação para o padrão brasileiro
+        NumberFormat formatador = NumberFormat.getInstance(new Locale("pt", "BR"));
+        formatador.setMinimumFractionDigits(2);
+        formatador.setMaximumFractionDigits(2);
+
         for (String ocorrencia : resultado) {
             aux = ocorrencia.split("/");
-            listaCPF += (aux[0]+"\n");
-            listaNome += (aux[1]+"\n");
-            listaPreco += (this.preco+"\n");
+            listaCPF += ("   " + aux[0] + "\n");
+            listaNome += ("   " + aux[1] + "\n");
+
+            String precoFormatado = formatador.format(this.preco);
+            listaPreco += ("   " + precoFormatado + "\n");
         }
-        
+
         printCPF.setText(listaCPF);
         printNome.setText(listaNome);
         printPreco.setText(listaPreco);
-        printTotal.setText(Double.toString(total));
-        
+
+        String valorFormatado = formatador.format(total);
+        printTotal.setText(valorFormatado);
     }
-    
-    
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
