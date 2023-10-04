@@ -3,8 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/Users/antoniovictoralvesdacosta/Documents/GitHub/TripManagementHelper/HomeGradient/src/main/Main.java</file>
-            <file>file:/Users/antoniovictoralvesdacosta/Documents/GitHub/TripManagementHelper/HomeGradient/src/home/Home.java</file>
+            <file>file:/Users/antoniovictoralvesdacosta/Documents/GitHub/TripManagementHelper/TripManagementHelper/src/menu/Menu.java</file>
+            <file>file:/Users/antoniovictoralvesdacosta/Documents/GitHub/TripManagementHelper/TripManagementHelper/src/menu/MenuEvent.java</file>
+            <file>file:/Users/antoniovictoralvesdacosta/Documents/GitHub/TripManagementHelper/TripManagementHelper/src/main/Main.java</file>
+            <file>file:/Users/antoniovictoralvesdacosta/Documents/GitHub/TripManagementHelper/TripManagementHelper/src/home/Home.java</file>
+            <file>file:/Users/antoniovictoralvesdacosta/Documents/GitHub/TripManagementHelper/TripManagementHelper/src/menu/MenuItem.java</file>
         </group>
     </open-files>
 </project-private>
