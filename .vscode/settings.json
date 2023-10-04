@@ -1,8 +1,8 @@
 {
     "java.project.referencedLibraries": [
         "lib/**/*.jar",
-        "c:\\Users\\hiso\\Downloads\\TimingFramework-0.55.jar",
-        "c:\\Users\\hiso\\Downloads\\miglayout-4.0.jar",
-        "c:\\Users\\hiso\\Downloads\\KGradientPanel.jar"
+        "TripManagementHelper/src/Dependences/KGradientPanel.jar",
+        "TripManagementHelper/src/Dependences/miglayout-4.0.jar",
+        "TripManagementHelper/src/Dependences/TimingFramework-0.55.jar"
     ]
 }

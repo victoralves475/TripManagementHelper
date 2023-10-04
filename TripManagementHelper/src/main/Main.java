@@ -67,7 +67,9 @@ public class Main extends javax.swing.JFrame {
             public void selected(int index, int subIndex) {
                 if (index == 0) {
                     // actionListener
-                    listener.onHomeClick();
+                    if (listener != null) {
+                        listener.onHomeClick();
+                    }
                 } else if (index == 1) {
                     showForm(criarReserva);
                 } else if (index == 2 && subIndex == 1) {

@@ -205,7 +205,7 @@ public class ListarPorCpf extends javax.swing.JPanel {
     }//GEN-LAST:event_jTextField2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        System.out.println("Inicio do clique");
+        
 
         String cpf = jTextField3.getText();
 
@@ -222,7 +222,7 @@ public class ListarPorCpf extends javax.swing.JPanel {
             jTextArea1.setText(log);
         }
 
-        System.out.println("Fim do clique");
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     public void setCpfClickListener(SearchClickListener listener) {

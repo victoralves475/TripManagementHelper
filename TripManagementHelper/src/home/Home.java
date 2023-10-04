@@ -336,6 +336,8 @@ public class Home extends javax.swing.JFrame {
             jTextField2.setText("");
             jTextField3.setText("");
             jTextField4.setText("");
+
+            jTextField5.setText("");
             try {
                 excursao = new Excursao(Integer.parseInt(cod));
                 main = new Main(excursao); //add parametro excursao
@@ -352,8 +354,6 @@ public class Home extends javax.swing.JFrame {
                 home.setVisible(false);
                 jLabelError.setText("");
             } catch (Exception e) {
-                // janelinha.showMessageDialog(null, e.getMessage());
-                // System.out.println(e.getMessage());
                 jLabelError.setText(e.getMessage());
             }
         }
@@ -365,12 +365,19 @@ public class Home extends javax.swing.JFrame {
             try {
                 excursao = new Excursao(Integer.parseInt(cod), Double.parseDouble(preco), Integer.parseInt(max));
                 main = new Main(excursao); //add parametro excursao
+
+                main.setHomeClickListener(new HomeClickListener() {
+                    @Override
+                    public void onHomeClick() {
+                        main.setVisible(false);
+                        home.setVisible(true);
+                    }
+                });
+
                 main.setVisible(true);
                 home.setVisible(false);
                 jLabelError.setText("");
             } catch (Exception e) {
-                // janelinha.showMessageDialog(null, e.getMessage());
-                // System.out.println(e.getMessage());
                 jLabelError.setText(e.getMessage());
             }
         }

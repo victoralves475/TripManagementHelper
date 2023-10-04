@@ -169,7 +169,7 @@ public class CriarReserva extends javax.swing.JPanel {
     }//GEN-LAST:event_jTextField3ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        System.out.println("Inicio do clique");
+        
 
         String cpf = jTextField2.getText();
         String nome = jTextField3.getText();
@@ -184,7 +184,7 @@ public class CriarReserva extends javax.swing.JPanel {
             print.setText(log);
         }
 
-        System.out.println("Fim do clique");
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private Excursao excursao;

@@ -207,7 +207,7 @@ public class ListarPorNome extends javax.swing.JPanel {
     }//GEN-LAST:event_jTextField2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        System.out.println("Inicio do clique");
+        
 
         String nome = jTextField2.getText();
 
@@ -224,7 +224,7 @@ public class ListarPorNome extends javax.swing.JPanel {
             jTextArea1.setText(log);
         }
 
-        System.out.println("Fim do clique");
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     public void setNomeClickListener(SearchClickListener listener) {

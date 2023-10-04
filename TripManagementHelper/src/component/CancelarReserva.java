@@ -203,7 +203,7 @@ public class CancelarReserva extends javax.swing.JPanel {
     }//GEN-LAST:event_jTextField2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        System.out.println("Inicio do clique");
+        
 
         String cpf = jTextField3.getText();
         String nome = jTextField2.getText();
@@ -220,7 +220,7 @@ public class CancelarReserva extends javax.swing.JPanel {
             print.setText(e.getMessage());
         }
         
-        System.out.println("Fim do clique");
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private Excursao excursao;
