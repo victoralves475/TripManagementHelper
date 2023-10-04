@@ -20,7 +20,7 @@ public class ListaExcursao extends javax.swing.JPanel {
     public ListaExcursao(ArrayList<String> resultado, Double preco, Double total) {
         this.resultado = resultado;
         this.preco = preco;
-        this.total = total;
+        this.total = 0.0;
         initComponents();
         print();
     }
@@ -60,7 +60,7 @@ public class ListaExcursao extends javax.swing.JPanel {
             aux = ocorrencia.split("/");
             listaCPF += ("   " + aux[0] + "\n");
             listaNome += ("   " + aux[1] + "\n");
-
+            this.total += this.preco;
             String precoFormatado = formatador.format(this.preco);
             listaPreco += ("   " + precoFormatado + "\n");
         }
@@ -69,7 +69,7 @@ public class ListaExcursao extends javax.swing.JPanel {
         printNome.setText(listaNome);
         printPreco.setText(listaPreco);
 
-        String valorFormatado = formatador.format(total);
+        String valorFormatado = formatador.format(this.total);
         printTotal.setText(valorFormatado);
     }
 
